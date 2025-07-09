@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""Defines a Rectangle class with string representation."""
 
 
 class Rectangle:
     """Represents a rectangle."""
 
     def __init__(self, width=0, height=0):
-        """Initializes the rectangle with optional width and height."""
+        """Initialize a new Rectangle instance."""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Gets the width."""
+        """Get the width."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Sets the width with validation."""
+        """Set the width with validation."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -26,12 +26,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Gets the height."""
+        """Get the height."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Sets the height with validation."""
+        """Set the height with validation."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -39,21 +39,24 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Returns the area of the rectangle."""
+        """Return the rectangle's area."""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Returns the perimeter of the rectangle."""
+        """Return the rectangle's perimeter."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Returns the rectangle with the character '#'."""
+        """Return the rectangle with '#' characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        rect_lines = []
-        for _ in range(self.__height):
-            rect_lines.append("#" * self.__width)
-        return "\n".join(rect_lines)
+        lines = ["#" * self.__width for _ in range(self.__height)]
+        return "\n".join(lines)
 
+    # The repr method returns a string that when evaluated
+    # creates a new identical Rectangle instance.
+    def __repr__(self):
+        """Return a string representation of the rectangle."""
+        return "Rectangle({}, {})".format(self.__width, self.__height)
