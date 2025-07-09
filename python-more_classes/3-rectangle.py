@@ -54,9 +54,3 @@ class Rectangle:
             return ""
         lines = ["#" * self.__width for _ in range(self.__height)]
         return "\n".join(lines)
-
-    # The repr method returns a string that when evaluated
-    # creates a new identical Rectangle instance.
-    def __repr__(self):
-        """Return a string representation of the rectangle."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
