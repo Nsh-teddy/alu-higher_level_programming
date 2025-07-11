@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Function inherits_from"""
 
+
 def inherits_from(obj, a_class):
     """Returns True if obj is an instance of a class that inherits from a_class"""
     # type(obj) is the class of obj
