@@ -36,6 +36,8 @@ class Student:
         Returns:
             dict: Dictionary of attributes.
         """
-        if isinstance(attrs, list) and all(type(attr) is str for attr in attrs):
-            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        if (isinstance(attrs, list) and
+                all(type(attr) is str for attr in attrs)):
+            return {key: getattr(self, key)
+                    for key in attrs if hasattr(self, key)}
         return self.__dict__
